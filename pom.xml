@@ -62,4 +62,32 @@
         <spring.version>4.3.5.RELEASE</spring.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>snapshots</id>
+            <name>nexus</name>
+            <url>http://192.168.0.80:8080/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>nexus releases</name>
+            <url>http://192.168.0.80:8080/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>nexus snapshots</name>
+            <url>http://192.168.0.80:8080/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
