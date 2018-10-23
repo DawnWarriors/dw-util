@@ -42,7 +42,7 @@ public class RequestUtils
 	 * @param request
 	 * @param <T>
 	 */
-	public static <T> void getModelFromRequestParametter(T obj, HttpServletRequest request) {
+	public static <T> void getModelFromRequestParameter(T obj, HttpServletRequest request) {
 		getModelFromRequest(obj, request, 1);
 	}
 
