@@ -18,18 +18,12 @@ import java.util.List;
 
 public class RequestUtils
 {
-	public static HttpServletRequest getRequest()
-	{
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-		return request;
-	}
-
 	/**
 	 * 通过attribute设值
 	 *
-	 * @param obj
-	 * @param request
-	 * @param <T>
+	 * @param obj Bean对象
+	 * @param request HttpServletRequest
+	 * @param <T> 泛型
 	 */
 	public static <T> void getModelFromRequest(T obj, HttpServletRequest request) {
 		getModelFromRequest(obj, request, 0);
@@ -38,9 +32,9 @@ public class RequestUtils
 	/**
 	 * 通过parameter设值
 	 *
-	 * @param obj
-	 * @param request
-	 * @param <T>
+	 * @param obj Bean对象
+	 * @param request HttpServletRequest
+	 * @param <T> 泛型
 	 */
 	public static <T> void getModelFromRequestParameter(T obj, HttpServletRequest request) {
 		getModelFromRequest(obj, request, 1);
@@ -49,10 +43,10 @@ public class RequestUtils
 	/**
 	 * 设置model属性值
 	 *
-	 * @param obj
-	 * @param request
+	 * @param obj Bean对象
+	 * @param request HttpServletRequest
 	 * @param option  0：attribute     1：parameter
-	 * @param <T>
+	 * @param <T> 泛型
 	 */
 	private static <T> void getModelFromRequest(T obj, HttpServletRequest request, int option) {
 		try {

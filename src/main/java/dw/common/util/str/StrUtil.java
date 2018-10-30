@@ -19,9 +19,10 @@ public class StrUtil
 	 * 源：System.err.println(getDiffset("1,2,11,1,,", "1",","));
 	 * 终端：2,11
 	 *
-	 * @param srcStr 源字符串
-	 * @param subStr 被减字符串
-	 * @return 差集
+	 * @param srcStr    源字符串
+	 * @param subStr    被减字符串
+	 * @param separator 字符串分隔符
+	 * @return String
 	 */
 	public static String getDiffset(final String srcStr, final String subStr, final String separator)
 	{
@@ -51,7 +52,7 @@ public class StrUtil
 	 * @param srcStr 源字符串集
 	 * @param subStr 源字符串集
 	 * @param del    分隔符
-	 * @return
+	 * @return String
 	 */
 	public static String getInterSet(final String srcStr, final String subStr, final String del)
 	{
@@ -117,7 +118,7 @@ public class StrUtil
 	 * @param sub        子串
 	 * @param trim       删除前后导空白字符
 	 * @param ignoreCase 忽略大小写
-	 * @return
+	 * @return int
 	 */
 	public static final int indexOf(String str, char delimiter, String sub, boolean trim, boolean ignoreCase)
 	{
@@ -151,9 +152,9 @@ public class StrUtil
 	/**
 	 * 用separator作为分隔符，连接strList
 	 *
-	 * @param strList
-	 * @param separator
-	 * @return
+	 * @param strList   字符串列表
+	 * @param separator 连接分隔符
+	 * @return 拼接后的字符串
 	 */
 	public static String linkListToString(List<String> strList, final String separator)
 	{
@@ -172,8 +173,9 @@ public class StrUtil
 	/**
 	 * 用separator作为分隔符，连接strArray
 	 *
-	 * @param separator
-	 * @return
+	 * @param strArray  字符串数组
+	 * @param separator 连接分隔符
+	 * @return 拼接后的字符串
 	 */
 	public static String linkStrArrayToString(String[] strArray, final String separator)
 	{
@@ -192,9 +194,9 @@ public class StrUtil
 	/**
 	 * 判断一个字符串是否在指定的字符串数组中
 	 *
-	 * @param strAry
-	 * @param str
-	 * @return
+	 * @param strAry 字符串数组
+	 * @param str    String
+	 * @return boolean：str是否在strAry中
 	 */
 	public static boolean isStrInStrAry(String strAry[], String str)
 	{
@@ -216,7 +218,7 @@ public class StrUtil
 	 * 判断字符串是否为空
 	 * 一般用于接收前台AJAX数据时的数据判断
 	 *
-	 * @param str
+	 * @param str String
 	 * @return 空返回true
 	 */
 	static public boolean isStrTrimNull(final String str)
@@ -228,7 +230,7 @@ public class StrUtil
 	 * 判断字符串是否非空
 	 * 一般用于接收前台AJAX数据时的数据判断
 	 *
-	 * @param str
+	 * @param str String
 	 * @return 空返回true
 	 */
 	static public boolean isNotStrTrimNull(final String str)
@@ -239,7 +241,7 @@ public class StrUtil
 	/**
 	 * 判断字符串是否为空
 	 *
-	 * @param str
+	 * @param str String
 	 * @return 空返回true
 	 */
 	static public boolean isStrNull(final String str)
@@ -250,8 +252,8 @@ public class StrUtil
 	/**
 	 * 判断字符串是否非空
 	 *
-	 * @param str
-	 * @return
+	 * @param str String
+	 * @return 空返回false
 	 */
 	static public boolean isNotStrNull(final String str)
 	{
@@ -261,9 +263,9 @@ public class StrUtil
 	/**
 	 * 创建一个长度为length的由字符ch组成的字符串
 	 *
-	 * @param length
-	 * @param ch
-	 * @return
+	 * @param length 长度
+	 * @param ch     字符
+	 * @return 生成的字符串
 	 */
 	public static String createStr(int length, char ch)
 	{
@@ -278,12 +280,12 @@ public class StrUtil
 	/**
 	 * 数字字符串的递增操作，count是递增次数，递增记录返回
 	 *
-	 * @param numStr
+	 * @param numStr     数字字符串
 	 * @param beginIndex 开始索引
 	 * @param endIndex   结束位置		与beginIndex一起用于字符串截取
 	 * @param count      递增次数
 	 * @param step       递增步长
-	 * @return
+	 * @return String[]
 	 */
 	public static String[] numStrIncrease(String numStr, int beginIndex, int endIndex, int count, int step)
 	{
@@ -310,8 +312,8 @@ public class StrUtil
 	/**
 	 * object转换成字符串，默认值空字符串
 	 *
-	 * @param obj
-	 * @return
+	 * @param obj Object
+	 * @return String
 	 */
 	public static String objToString(Object obj)
 	{
@@ -321,9 +323,9 @@ public class StrUtil
 	/**
 	 * object转换成字符串，如果是NULL，则返沪默认值
 	 *
-	 * @param obj
+	 * @param obj          Object
 	 * @param defaultValue 指定的默认值
-	 * @return
+	 * @return String
 	 */
 	public static String objToString(Object obj, String defaultValue)
 	{
@@ -347,9 +349,9 @@ public class StrUtil
 	 * 如果长度超出，截取后后边加“…”
 	 * 如果长度不够则返回原字符串
 	 *
-	 * @param str
-	 * @param length
-	 * @return
+	 * @param str    String
+	 * @param length 长度
+	 * @return String
 	 */
 	public static String subLimitLengthStr(String str, int length)
 	{
@@ -365,10 +367,10 @@ public class StrUtil
 	/**
 	 * 截取
 	 *
-	 * @param content
-	 * @param startCutKeyWord
-	 * @param endCutKeyWord
-	 * @return
+	 * @param content         文本内容
+	 * @param startCutKeyWord 开始截取标记
+	 * @param endCutKeyWord   结束截取标记
+	 * @return 截取结果
 	 */
 	public static String substring(String content, String startCutKeyWord, String endCutKeyWord)
 	{
@@ -381,9 +383,9 @@ public class StrUtil
 	/**
 	 * 获取文本中的前maxLength个 超出部分使用……补充
 	 *
-	 * @param text
-	 * @param maxLength
-	 * @return
+	 * @param text      文本内容
+	 * @param maxLength 最大长度
+	 * @return String
 	 */
 	public static String head(String text, int maxLength)
 	{
@@ -399,10 +401,10 @@ public class StrUtil
 	}
 
 	/**
-	 * 将html转码，例如"&" -> "&amp;"
+	 * 将html转码，例如"&amp;" -&gt; "&amp;amp;"
 	 *
-	 * @param input
-	 * @return
+	 * @param input String
+	 * @return String
 	 */
 	public static String escapeHtml(String input)
 	{
@@ -410,10 +412,10 @@ public class StrUtil
 	}
 
 	/**
-	 * 将html反转码，例如"&amp;" -> "&"
+	 * 将html反转码，例如"&amp;amp;" -&gt; "&amp;"
 	 *
-	 * @param input
-	 * @return
+	 * @param input String
+	 * @return String
 	 */
 	public static String unescapeHtml(String input)
 	{
@@ -421,10 +423,10 @@ public class StrUtil
 	}
 
 	/**
-	 * 将字符串转码，例如"中文" -> "\u4E2D\u6587"
+	 * 将字符串转码，例如"中文" -&gt; "\u4E2D\u6587"
 	 *
-	 * @param input
-	 * @return
+	 * @param input String
+	 * @return String
 	 */
 	public static String escape(String input)
 	{
@@ -432,10 +434,10 @@ public class StrUtil
 	}
 
 	/**
-	 * 将字符串反转码，例如"\u4E2D\u6587" -> "中文"
+	 * 将字符串反转码，例如"\u4E2D\u6587" -&gt; "中文"
 	 *
-	 * @param input
-	 * @return
+	 * @param input String
+	 * @return String
 	 */
 	public static String unescape(String input)
 	{
@@ -445,9 +447,9 @@ public class StrUtil
 	/**
 	 * getBytes
 	 *
-	 * @param input
-	 * @param charset
-	 * @return
+	 * @param input   String
+	 * @param charset Charset
+	 * @return String
 	 */
 	public static byte[] getBytes(String input, Charset charset)
 	{
@@ -462,8 +464,8 @@ public class StrUtil
 	 * 使用等号对base64补齐。
 	 * （可解决base64用于补齐的等号在cookie中被截断的问题）
 	 *
-	 * @param base64
-	 * @return
+	 * @param base64 String
+	 * @return String
 	 */
 	public static String ensureBase64Padding(String base64)
 	{
@@ -483,8 +485,8 @@ public class StrUtil
 	/**
 	 * 清除base64的补齐等号。
 	 *
-	 * @param base64
-	 * @return
+	 * @param base64 String
+	 * @return String
 	 */
 	public static String removeBase64Padding(String base64)
 	{
@@ -508,7 +510,7 @@ public class StrUtil
 	 * 判断是否为纯数字
 	 *
 	 * @param str 把要判断的字符串 str 传入
-	 * @return true:是纯数字 false:不是纯数字
+	 * @return boolean
 	 */
 	public static boolean isNumeric(String str)
 	{
@@ -525,9 +527,9 @@ public class StrUtil
 	/**
 	 * 将以特定字符串连接的字符串，转换成List
 	 *
-	 * @param str
-	 * @param separator
-	 * @return
+	 * @param str       String
+	 * @param separator String
+	 * @return 字符串List
 	 */
 	public static List<String> strToList(String str, final String separator)
 	{
@@ -545,25 +547,31 @@ public class StrUtil
 
 	/**
 	 * 下划线转驼峰法
-	 * @param line 源字符串
+	 *
+	 * @param line       源字符串
 	 * @param smallCamel 大小驼峰,是否为小驼峰
 	 * @return 转换后的字符串
 	 * 转载自： https://www.cnblogs.com/javasharp/p/4622413.html
 	 */
-	public static String underline2Camel(String line,boolean smallCamel){
-		if(line==null||"".equals(line)){
+	public static String underline2Camel(String line, boolean smallCamel)
+	{
+		if (line == null || "".equals(line))
+		{
 			return "";
 		}
-		StringBuffer sb=new StringBuffer();
-		Pattern pattern= Pattern.compile("([A-Za-z\\d]+)(_)?");
-		Matcher matcher=pattern.matcher(line);
-		while(matcher.find()){
-			String word=matcher.group();
-			sb.append(smallCamel&&matcher.start()==0?Character.toLowerCase(word.charAt(0)):Character.toUpperCase(word.charAt(0)));
-			int index=word.lastIndexOf('_');
-			if(index>0){
+		StringBuffer sb = new StringBuffer();
+		Pattern pattern = Pattern.compile("([A-Za-z\\d]+)(_)?");
+		Matcher matcher = pattern.matcher(line);
+		while (matcher.find())
+		{
+			String word = matcher.group();
+			sb.append(smallCamel && matcher.start() == 0 ? Character.toLowerCase(word.charAt(0)) : Character.toUpperCase(word.charAt(0)));
+			int index = word.lastIndexOf('_');
+			if (index > 0)
+			{
 				sb.append(word.substring(1, index).toLowerCase());
-			}else{
+			} else
+			{
 				sb.append(word.substring(1).toLowerCase());
 			}
 		}
@@ -572,33 +580,27 @@ public class StrUtil
 
 	/**
 	 * 驼峰法转下划线
+	 *
 	 * @param line 源字符串
 	 * @return 转换后的字符串
 	 * 转载自： https://www.cnblogs.com/javasharp/p/4622413.html
 	 */
-	public static String camel2Underline(String line){
-		if(line==null||"".equals(line)){
+	public static String camel2Underline(String line)
+	{
+		if (line == null || "".equals(line))
+		{
 			return "";
 		}
-		line=String.valueOf(line.charAt(0)).toUpperCase().concat(line.substring(1));
-		StringBuffer sb=new StringBuffer();
-		Pattern pattern=Pattern.compile("[A-Z]([a-z\\d]+)?");
-		Matcher matcher=pattern.matcher(line);
-		while(matcher.find()){
-			String word=matcher.group();
+		line = String.valueOf(line.charAt(0)).toUpperCase().concat(line.substring(1));
+		StringBuffer sb = new StringBuffer();
+		Pattern pattern = Pattern.compile("[A-Z]([a-z\\d]+)?");
+		Matcher matcher = pattern.matcher(line);
+		while (matcher.find())
+		{
+			String word = matcher.group();
 			sb.append(word.toUpperCase());
-			sb.append(matcher.end()==line.length()?"":"_");
+			sb.append(matcher.end() == line.length() ? "" : "_");
 		}
 		return sb.toString();
-	}
-
-	public static void main(String[] args)
-	{
-		String numStr = "abc1";
-		String sAry[] = numStrIncrease(numStr, 3, numStr.length(), 4, 1);
-		for (String s : sAry)
-		{
-			System.out.println(s);
-		}
 	}
 }

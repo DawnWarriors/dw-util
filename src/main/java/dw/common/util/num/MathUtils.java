@@ -17,9 +17,9 @@ public final class MathUtils extends NumberUtils {
 
 	/**
 	 * 加法v1+v2
-	 * @param v1
-	 * @param v2
-	 * @return
+	 * @param v1 double
+	 * @param v2 double
+	 * @return v1+v2
 	 */
 	public static double add(double v1, double v2) {
 		BigDecimal b1 = toBigDecimal(v1);
@@ -30,9 +30,9 @@ public final class MathUtils extends NumberUtils {
 	
 	/**
 	 * 减法v1-v2
-	 * @param v1
-	 * @param v2
-	 * @return
+	 * @param v1 double
+	 * @param v2 double
+	 * @return v1-v2
 	 */
 	public static double subtract(double v1, double v2) {
 		BigDecimal b1 = toBigDecimal(v1);
@@ -42,9 +42,9 @@ public final class MathUtils extends NumberUtils {
 	
 	/**
 	 * 乘法v1*v2
-	 * @param v1
-	 * @param v2
-	 * @return
+	 * @param v1 double
+	 * @param v2 double
+	 * @return v1*v2
 	 */
 	public static double multiply(double v1, double v2) {
 		BigDecimal b1 = toBigDecimal(v1);
@@ -54,10 +54,10 @@ public final class MathUtils extends NumberUtils {
 	
 	/**
 	 * 乘法v1*v2
-	 * @param v1
-	 * @param v2
+	 * @param v1 double
+	 * @param v2 double
 	 * @param scale 保留小数点后几位小数
-	 * @return
+	 * @return v1*v2
 	 */
 	public static double multiply(double v1, double v2, int scale) {
 		if (scale < 0) {
@@ -72,9 +72,9 @@ public final class MathUtils extends NumberUtils {
 	/**
 	 * 除法 v1/v2
 	 * 如果结果出现无限循环小数会产生异常
-	 * @param v1
-	 * @param v2 不能为0
-	 * @return
+	 * @param v1 double
+	 * @param v2 double 不能为0
+	 * @return v1/v2
 	 */
 	public static double divide(double v1, double v2) {
 		BigDecimal b1 = toBigDecimal(v1);
@@ -85,10 +85,10 @@ public final class MathUtils extends NumberUtils {
 	/**
 	 * 除法 v1/v2
 	 * 
-	 * @param v1
-	 * @param v2
+	 * @param v1 double
+	 * @param v2 double 不能为0
 	 * @param scale 保留小数点后几位小数
-	 * @return
+	 * @return v1/v2
 	 */
 	public static double divide(double v1, double v2, int scale) {
 		if (scale < 0) {
@@ -103,9 +103,9 @@ public final class MathUtils extends NumberUtils {
 	/**
 	 * 四舍五入
 	 * 
-	 * @param v
-	 * @param scale
-	 * @return
+	 * @param v double
+	 * @param scale 保留小数点后几位小数
+	 * @return 四舍五入
 	 */
 	public static double round(double v, int scale) {
 		if (scale < 0) {

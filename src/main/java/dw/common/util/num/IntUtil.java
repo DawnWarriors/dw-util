@@ -6,8 +6,9 @@ public class IntUtil
 {
 	/**
 	 * 将Object对象转换成int,默认值0
-	 * @param obj
-	 * @return
+	 *
+	 * @param obj Object
+	 * @return 整形数据
 	 */
 	public static int objToInt(Object obj)
 	{
@@ -16,9 +17,10 @@ public class IntUtil
 
 	/**
 	 * 将Object对象转换成int
-	 * @param obj
-	 * @param defaultVal
-	 * @return
+	 *
+	 * @param obj        Object
+	 * @param defaultVal 默认值
+	 * @return 整型数据
 	 */
 	public static int objToInt(Object obj, int defaultVal)
 	{

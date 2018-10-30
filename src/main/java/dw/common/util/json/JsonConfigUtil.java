@@ -8,8 +8,14 @@ import java.util.Date;
 
 public class JsonConfigUtil
 {
-	private static JsonConfig	jsonConfig	= null;
+	private static JsonConfig jsonConfig = null;
 
+	/**
+	 * 默认的JSON配置
+	 * 日期格式化配置改为yyyy-MM-dd HH:mm:ss
+	 *
+	 * @return JSON配置
+	 */
 	public static JsonConfig getJsonConfig()
 	{
 		if (jsonConfig == null)

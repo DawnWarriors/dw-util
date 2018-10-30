@@ -3,11 +3,10 @@ package dw.common.util.num;
 import java.math.BigDecimal;
 
 /**
- * com.util.AmountUtils
+ * 金额元分之间转换工具类
  *
  * @author zcm0708@sina.com
- * @description 金额元分之间转换工具类
- * @2012-2-7下午12:58:00
+ * 2012-2-7下午12:58:00
  */
 public class AmountUtils
 {
@@ -19,9 +18,8 @@ public class AmountUtils
 	/**
 	 * 将分为单位的转换为元并返回金额格式的字符串 （除100）
 	 *
-	 * @param amount
-	 * @return
-	 * @throws Exception
+	 * @param amount 以分为单位金额
+	 * @return 金额字符串
 	 */
 	public static String changeF2Y(Long amount)
 	{
@@ -68,9 +66,8 @@ public class AmountUtils
 	/**
 	 * 将分为单位的转换为元 （除100）
 	 *
-	 * @param amount
-	 * @return
-	 * @throws Exception
+	 * @param amount 以分为单位的金额
+	 * @return 金额字符串
 	 */
 	public static String changeF2Y(String amount)
 	{
@@ -93,8 +90,8 @@ public class AmountUtils
 	/**
 	 * 将元为单位的转换为分 （乘100）
 	 *
-	 * @param amount
-	 * @return
+	 * @param amount 以元为单位的金额
+	 * @return 以分为单位的金额
 	 */
 	public static String changeY2F(Long amount)
 	{
@@ -104,8 +101,8 @@ public class AmountUtils
 	/**
 	 * 将元为单位的转换为分 替换小数点，支持以逗号区分的金额
 	 *
-	 * @param amount
-	 * @return
+	 * @param amount 以元为单位的金额
+	 * @return 以分为单位的金额
 	 */
 	public static String changeY2F(String amount)
 	{
@@ -127,29 +124,5 @@ public class AmountUtils
 			amLong = Long.valueOf((currency.substring(0, index + 1)).replace(".", "") + "00");
 		}
 		return amLong.toString();
-	}
-
-	public static void main(String[] args)
-	{
-		//        try {
-		//            System.out.println("结果："+changeF2Y("-000a00"));
-		//        } catch(Exception e){
-		//            System.out.println("----------->>>"+e.getMessage());
-		////          return e.getErrorCode();
-		//        }
-		//      System.out.println("结果："+changeY2F("1.00000000001E10"));
-		System.out.println(AmountUtils.changeY2F("1.33"));
-		try
-		{
-			System.out.println(AmountUtils.changeF2Y("1322"));
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		//        System.out.println(Long.parseLong(AmountUtils.changeY2F("1000000000000000")));
-		//        System.out.println(Integer.parseInt(AmountUtils.changeY2F("10000000")));
-		//        System.out.println(Integer.MIN_VALUE);
-		//        long a = 0;
-		//        System.out.println(a);
 	}
 }

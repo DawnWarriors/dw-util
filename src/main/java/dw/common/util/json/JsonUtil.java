@@ -8,14 +8,15 @@ public class JsonUtil
 {
 	/**
 	 * 从JSON对象中获取JSON数组
+	 * 过滤掉无值报JSONException的情况
 	 *
-	 * @param jsonObject
-	 * @param key
-	 * @return
+	 * @param jsonObject JSON对象
+	 * @param key        key
+	 * @return JSON数组
 	 */
 	public static JSONArray getJsonArray(JSONObject jsonObject, String key)
 	{
-		if(jsonObject==null)
+		if (jsonObject == null)
 		{
 			throw new NullPointerException("jsonObject is null");
 		}

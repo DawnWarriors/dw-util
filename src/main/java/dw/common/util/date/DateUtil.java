@@ -17,7 +17,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取上周一
 	 *
-	 * @return
+	 * @return 上周一
 	 */
 	public static Calendar getLastMondayOfWeek()
 	{
@@ -34,7 +34,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取上周日
 	 *
-	 * @return
+	 * @return 上周日
 	 */
 	public static Calendar getLastSundayOfWeek()
 	{
@@ -51,7 +51,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取本周周1
 	 *
-	 * @return
+	 * @return 本周周1
 	 */
 	public static Calendar getMondayOfThisWeek()
 	{
@@ -68,7 +68,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取本周周日
 	 *
-	 * @return
+	 * @return 本周周日
 	 */
 	public static Calendar getSundayOfThisWeek()
 	{
@@ -83,50 +83,50 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	}
 
 	/**
-	 * 获取当前日期
+	 * 获取当前日期 yyyy-MM-dd
 	 *
-	 * @return
+	 * @return 当前日期
 	 */
 	public static String getCurDate()
 	{
-		return MacroUtil.macroReplace(curDate);
+		return MacroUtil.dateMacroReplace(curDate);
 	}
 
 	/**
-	 * 获取当前日期时间
+	 * 获取当前日期时间 yyyy-MM-dd HH:mm:ss
 	 *
-	 * @return
+	 * @return 当前日期时间
 	 */
 	public static String getCurDateTime()
 	{
-		return MacroUtil.macroReplace(curDateTime);
+		return MacroUtil.dateMacroReplace(curDateTime);
 	}
 
 	/**
-	 * 获取当前世家包含毫秒
+	 * 获取当前时间包含毫秒
 	 *
-	 * @return
+	 * @return 当前时间
 	 */
 	public static String getCurDateTimeCS()
 	{
-		return MacroUtil.macroReplace(curDateTimeCS);
+		return MacroUtil.dateMacroReplace(curDateTimeCS);
 	}
 
 	/**
-	 * 获取当前时间
+	 * 获取当前时间 HH:mm:ss
 	 *
-	 * @return
+	 * @return 当前时间
 	 */
 	public static String getCurTime()
 	{
-		return MacroUtil.macroReplace(curTime);
+		return MacroUtil.dateMacroReplace(curTime);
 	}
 
 	/**
-	 * 获取自定义格式的事件
+	 * 获取自定义格式的时间
 	 *
-	 * @param timeExpr
-	 * @return
+	 * @param timeExpr 日期格式字符串
+	 * @return 格式化后的当前时间
 	 */
 	public static String getCurCustTime(String timeExpr)
 	{
@@ -137,14 +137,15 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 		timeExpr = timeExpr.replaceAll("hh", "\\$\\{CURHOUR\\}");
 		timeExpr = timeExpr.replaceAll("ii", "\\$\\{CURMINUTE\\}");
 		timeExpr = timeExpr.replaceAll("ss", "\\$\\{CURSECOND\\}");
-		return MacroUtil.macroReplace(timeExpr);
+		return MacroUtil.dateMacroReplace(timeExpr);
 	}
 
 	/**
 	 * 根据指定格式格式化日期
 	 *
-	 * @param date
-	 * @return
+	 * @param date     时间
+	 * @param timeExpr 日期格式字符串
+	 * @return 格式化后的时间
 	 */
 	public static String formatDate(Date date, String timeExpr)
 	{
@@ -161,8 +162,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 格式化日期(yyyy-mm-dd)
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 日期字符串
 	 */
 	public static String formatDate_Y4MD(Date date)
 	{
@@ -172,8 +173,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 格式化日期(yy-mm-dd)
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 日期字符串
 	 */
 	public static String formatDate_Y2MD(Date date)
 	{
@@ -183,8 +184,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 格式化日期(yyyy-mm-dd hh:ii:ss)
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 日期字符串
 	 */
 	public static String formatDate_Y4MDHIS(Date date)
 	{
@@ -194,8 +195,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 格式化日期(hh:ii:ss)
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 日期字符串
 	 */
 	public static String formatDate_HIS(Date date)
 	{
@@ -205,8 +206,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 根据指定格式格式化当前日期
 	 *
-	 * @param timeExpr
-	 * @return
+	 * @param timeExpr 日期格式化字符串
+	 * @return 日期字符串
 	 */
 	public static String formatDate(String timeExpr)
 	{
@@ -216,9 +217,10 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 解析string为date。
 	 *
-	 * @param date
-	 * @param pattern
-	 * @return
+	 * @param date    日期字符串
+	 * @param pattern 日期格式化字符串
+	 * @return 日期对象
+	 * @throws ParseException 格式化错误
 	 */
 	public static Date parse(String date, String pattern) throws ParseException
 	{
@@ -229,8 +231,9 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 解析string为date: yyyy-mm-dd
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期字符串
+	 * @return 日期对象
+	 * @throws ParseException 格式化错误
 	 */
 	public static Date parse_Y4MD(String date) throws ParseException
 	{
@@ -241,8 +244,9 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 解析string为date: yyyy-mm-dd hh:ii:ss
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期字符串
+	 * @return 日期对象
+	 * @throws ParseException 格式化错误
 	 */
 	public static Date parse_Y4MDHIS(String date) throws ParseException
 	{
@@ -253,8 +257,9 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 解析string为date: hh:ii
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期字符串
+	 * @return 日期对象
+	 * @throws ParseException 格式化错误
 	 */
 	public static Date parse_HI(String date) throws ParseException
 	{
@@ -262,6 +267,12 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 		return format.parse(date);
 	}
 
+	/**
+	 * 日期克隆
+	 *
+	 * @param date Date
+	 * @return Date
+	 */
 	public static Date cloneDate(Date date)
 	{
 		return (Date) (date.clone());
@@ -294,8 +305,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取指定日期的年
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 年
 	 */
 	public static int getYearOfDate(Date date)
 	{
@@ -307,8 +318,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取指定日期的月
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 月
 	 */
 	public static int getMonthOfDate(Date date)
 	{
@@ -320,8 +331,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取指定日期的日
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 日
 	 */
 	public static int getDayOfDate(Date date)
 	{
@@ -333,8 +344,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取指定日期的星期
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 星期
 	 */
 	public static int getWeekOfDate(Date date)
 	{
@@ -343,34 +354,13 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 		return calendar.get(Calendar.DAY_OF_WEEK) - 1;
 	}
 
-	public static Date toDate(long date)
-	{
-		return new Date(date);
-	}
-
 	/**
-	 * 鎻愪緵
-	 * java.util.Date date = (java.util.Date)RemoteInvoke.remoteInvoke("snsoft.util.DateUtil.today",null);
+	 * 某年某月周末天数
+	 *
+	 * @param year  年
+	 * @param month 月
+	 * @return 周末天数
 	 */
-	@SuppressWarnings("rawtypes")
-	public static Date today(java.util.Map envP, java.util.Map params)
-	{
-		return new Date();
-	}
-
-	@SuppressWarnings("rawtypes")
-	public static long todayTime(java.util.Map envP, java.util.Map params)
-	{
-		return System.currentTimeMillis();
-	}
-
-	public static long getDateTime(Object date)
-	{
-		return date instanceof Date ? ((Date) date).getTime() : 0;
-	}
-
-	static public long deltaFromServer = Long.MIN_VALUE;
-
 	static public int getDefaultHolidays(int year, int month)
 	{
 		GregorianCalendar cal = new GregorianCalendar(year, month - 1, 1);
@@ -387,6 +377,14 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 		return x;
 	}
 
+	/**
+	 * 是否是周末
+	 *
+	 * @param year  年
+	 * @param month 月
+	 * @param day   日
+	 * @return 是否是周末
+	 */
 	static public boolean isDefaultHolidays(int year, int month, int day)
 	{
 		GregorianCalendar cal = new GregorianCalendar(year, month - 1, day);
@@ -394,6 +392,13 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 		return dayOfWeek == Calendar.SUNDAY || dayOfWeek == Calendar.SATURDAY;
 	}
 
+	/**
+	 * 向后或向前推多少天
+	 *
+	 * @param date 日期
+	 * @param day  +n 表示向后推 -n 表示向前推
+	 * @return 计算后的日期
+	 */
 	static public Date incDate(Date date, int day)
 	{
 		if (day == 0 || date == null)
@@ -404,62 +409,50 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 		return cal.getTime();
 	}
 
+	/**
+	 * 两个日期相差天数
+	 *
+	 * @param date1 日期1
+	 * @param date2 日期2
+	 * @return 相差天数
+	 */
 	static public int diffDate(Date date1, Date date2)
 	{
 		return (int) ((date1.getTime() - date2.getTime()) / (24 * 60 * 60 * 1000));
 	}
 
+	/**
+	 * 两个日期相差秒数
+	 *
+	 * @param date1 日期1
+	 * @param date2 日期2
+	 * @return 相差秒数
+	 */
 	static public long diffSeconds(Date date1, Date date2)
 	{
 		return (date1.getTime() - date2.getTime()) / 1000l;
 	}
 
-	static public final String calendarToString(final Calendar cal, int hmsFormat)
-	{
-		final int options = hmsFormat >> 4;
-		hmsFormat &= 0xf;
-		int year = cal.get(Calendar.YEAR);//((java.sql.Timestamp)value).getYear() + 1900;
-		int month = cal.get(Calendar.MONTH) + 1;//((java.sql.Timestamp)value).getMonth() + 1;
-		int day = cal.get(Calendar.DAY_OF_MONTH);//((java.sql.Timestamp)value).getDate();
-		String yearText = Integer.toString(year);
-		if ((options & 1) != 0 && yearText.length() > 2)
-			yearText = yearText.substring(yearText.length() - 2);
-		//if( (options&1)!=0 ) year
-		String text = yearText + (month < 10 ? "-0" : "-") + month + (day < 10 ? "-0" : "-") + day;
-		if (hmsFormat == 2)//|| date instanceof java.sql.Date )
-			return text;
-		int hour = cal.get(Calendar.HOUR_OF_DAY);
-		int min = cal.get(Calendar.MINUTE);
-		if (hmsFormat == 4)
-			return text + " " + toStr2(hour) + ":" + toStr2(min);
-		int sec = cal.get(Calendar.SECOND);
-		//System.err.println("date="+date+",cal="+cal+",cal.getTime()="+cal.getTime()+",hour="+hour);//+","+date.getHours());
-		if (hmsFormat == 1)
-			return text + " " + toStr2(hour) + ":" + toStr2(min) + ":" + toStr2(sec);
-		if (hmsFormat == 5)
-			return text + " " + toStr2(hour) + ":" + toStr2(min) + ":" + toStr2(sec) + "." + cal.get(Calendar.MILLISECOND);
-		if (hour == 0 && min == 0 && sec == 0)
-			return text;
-		return sec == 0 ? text + " " + toStr2(hour) + ":" + toStr2(min) : text + " " + toStr2(hour) + ":" + toStr2(min) + ":" + toStr2(sec);
-	}
-
-	final static private String toStr2(int x)
-	{
-		return x < 10 ? "0" + x : "" + x;
-	}
-
+	/**
+	 * 日期格式化为英文字符串
+	 *
+	 * @param date 日期
+	 * @return 英文日期字符串
+	 */
 	static public String dateToEnglishString(Date date)
 	{
-		/*
-		if (date==null) return null;
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		int m = calendar.get(Calendar.MONTH);
-		return "JanFebMarAprMayJunJulAugSepOctNovDec".substring(m*3,m*3+3)+'-'+calendar.get(Calendar.DATE)+'-'+calendar.get(Calendar.YEAR);
-		*/
 		return dateToEnglishString(date, true, '-', '-');
 	}
 
+	/**
+	 * 日期格式化为英文字符串
+	 *
+	 * @param date       日期
+	 * @param shortMonth 月份是否缩写
+	 * @param deliMD     月与日之间的分隔符
+	 * @param deliDY     日与年之间的分隔符
+	 * @return 英文日期字符串
+	 */
 	static public String dateToEnglishString(Date date, boolean shortMonth, char deliMD, char deliDY)
 	{
 		if (date == null)
@@ -478,81 +471,11 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 		return month + deliMD + calendar.get(Calendar.DATE) + deliDY + calendar.get(Calendar.YEAR);
 	}
 
-	static public String secondsToString(int seconds)
-	{
-		int h = seconds / (60 * 60);
-		int m = seconds / 60 % 60;
-		int s = seconds % 60;
-		return toStr2(h) + ":" + toStr2(m) + (s == 0 ? "" : ":" + toStr2(s));
-	}
-
 	/**
-	 * 判断两个日期区间是否重叠
+	 * 获取当前开始时间
 	 *
-	 * @param begin1
-	 * @param end1
-	 * @param includeWeek1
-	 * @param begin2
-	 * @param end2
-	 * @param includeWeek2
-	 * @return
+	 * @return 当前开始时间
 	 */
-	public static boolean isOverlap(Date begin1, Date end1, String includeWeek1, Date begin2, Date end2, String includeWeek2)
-	{
-		Date curDate = getCurDayDate();
-		if (begin1.getTime() < curDate.getTime())
-		{
-			begin1 = curDate;
-		}
-		List<Long> days1 = getDays(begin1, end1, includeWeek1);
-		List<Long> days2 = getDays(begin2, end2, includeWeek2);
-		for (int i = 0 ; i < days1.size() ; i++)
-		{
-			Long day = days1.get(i);
-			if (days2.contains(day))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * 获取日期区间内所有的天数所对应的秒数集合
-	 *
-	 * @param begin
-	 * @param end
-	 * @param includeWeek
-	 * @return
-	 */
-	private static List<Long> getDays(Date begin, Date end, String includeWeek)
-	{
-		Calendar beginCalendar = Calendar.getInstance();
-		beginCalendar.setTime(begin);
-		beginCalendar.set(Calendar.HOUR_OF_DAY, 0);
-		beginCalendar.set(Calendar.MINUTE, 0);
-		beginCalendar.set(Calendar.SECOND, 0);
-		beginCalendar.set(Calendar.MILLISECOND, 0);
-		Calendar endCalendar = Calendar.getInstance();
-		endCalendar.setTime(end);
-		endCalendar.set(Calendar.HOUR_OF_DAY, 0);
-		endCalendar.set(Calendar.MINUTE, 0);
-		endCalendar.set(Calendar.SECOND, 0);
-		endCalendar.set(Calendar.MILLISECOND, 0);
-		List<Long> dayList = new ArrayList<>();
-		for (long day = beginCalendar.getTimeInMillis() ; day <= endCalendar.getTimeInMillis() ; day += 86400000)
-		{
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(new Date(day));
-			int week = calendar.get(Calendar.DAY_OF_WEEK);
-			if (includeWeek.contains(week + ""))
-			{
-				dayList.add(day);
-			}
-		}
-		return dayList;
-	}
-
 	public static Date getCurDayDate()
 	{
 		Calendar calendar = Calendar.getInstance();
@@ -566,8 +489,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取指定时间的日期（去掉时分秒毫秒）
 	 *
-	 * @param date
-	 * @return
+	 * @param date 日期
+	 * @return 日期的当天起始时间
 	 */
 	public static Date getDayDate(Date date)
 	{
@@ -583,7 +506,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取当月第一天 00:00:00
 	 *
-	 * @return
+	 * @return 当月第一天
 	 */
 	public static Date getFirstDayOfMonth()
 	{
@@ -601,7 +524,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取当月最后一天 23:59:59
 	 *
-	 * @return
+	 * @return 当月最后一天
 	 */
 	public static Date getLastDayOfMonth()
 	{
@@ -617,6 +540,8 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 
 	/**
 	 * 获取本周第一天
+	 *
+	 * @return 本周第一天
 	 */
 	public static Date getWeekStartDate()
 	{
@@ -640,7 +565,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取本周最后一天
 	 *
-	 * @return
+	 * @return 本周最后一天
 	 */
 	public static Date getWeekEndDate()
 	{
@@ -651,28 +576,11 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils
 	/**
 	 * 获取当天结束时间
 	 *
-	 * @return
+	 * @return 当天结束时间
 	 */
 	public static Date getCurDayEnd()
 	{
 		Date begin = getCurDayDate();
 		return new Date(begin.getTime() + 24 * 60 * 60 * 1000 - 1);
-	}
-
-	/**
-	 * 获取今天的日期,String 格式 yyyy-MM-dd
-	 *
-	 * @return
-	 */
-	public static String getTodayString()
-	{
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return sdf.format(date);
-	}
-
-	public static void main(String[] args)
-	{
-		System.out.println(getCurCustTime("yyyy-yy-mm-dd hh:ii:ss"));
 	}
 }

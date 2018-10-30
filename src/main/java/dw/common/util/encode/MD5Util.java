@@ -6,18 +6,19 @@ import java.security.NoSuchAlgorithmException;
 public class MD5Util
 {
 	/**
-	 * 获取加密后的字符串
-	 * @param pw
-	 * @return
+	 * 获取MD5加密后的字符串
+	 *
+	 * @param str 待加密字符串
+	 * @return 加密后字符串
 	 */
-	public static String getMD5(String pw)
+	public static String getMD5(String str)
 	{
 		try
 		{
 			// 拿到一个MD5转换器（如果想要SHA1参数换成”SHA1”）  
 			MessageDigest messageDigest = MessageDigest.getInstance("MD5");
 			// 输入的字符串转换成字节数组  
-			byte[] inputByteArray = pw.getBytes();
+			byte[] inputByteArray = str.getBytes();
 			// inputByteArray是输入字符串转换得到的字节数组  
 			messageDigest.update(inputByteArray);
 			// 转换并返回结果，也是字节数组，包含16个元素  
